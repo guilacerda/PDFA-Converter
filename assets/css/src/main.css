@@ -1,0 +1,29 @@
+body {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+main {
+	flex: 1 0 auto;
+}
+
+.warning-msg.hidden{
+	display: none;
+}
+
+.warning-msg{
+	background: #fff1f1;
+	border: 1px solid #f9d1d1;
+}
+
+.warning-msg small{
+	text-transform: uppercase;
+	color: #b71c1c;
+}
+
+.warning-msg i{
+	vertical-align: middle;
+    margin-top: -3px;
+    margin-right: 5px;
+}
