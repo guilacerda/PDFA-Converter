@@ -61,7 +61,14 @@
 		</div>
 		<div class="footer-copyright">
 			<div class="container">
-				Desenvolvido com <a class="red-text text-lighten-1" href="http://materializecss.com" target="_blank">Materialize</a>
+				<div class="row">
+					<div class="col s6">
+						Acompanhe no <a class="red-text text-lighten-1" href="https://github.com/Darciro/PDFA-Converter" target="_blank">Github</a>
+					</div>
+					<div class="col s6 right-align">
+						Desenvolvido com <a class="red-text text-lighten-1" href="http://materializecss.com" target="_blank">Materialize</a>
+					</div>
+				</div>
 			</div>
 		</div>
 	</footer>
