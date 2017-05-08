@@ -11,7 +11,7 @@ var gulp 		 = require('gulp'),
     watch        = require('watch');
 
 gulp.task('js', function () {
-    return gulp.src('./assets/js/src/*.js')
+    return gulp.src(['./assets/js/src/jquery-3.2.1.js', './assets/js/src/*.js'])
         .pipe(plumber( {errorHandler: notify.onError("Error: <%= error.message %>")} ))
         .pipe(sourcemaps.init())
         .pipe(uglify())

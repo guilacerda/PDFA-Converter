@@ -18,7 +18,25 @@
         			$('#convert-pdf').removeClass('green darken-1').addClass('red darken-4').text('Selecione um PDF');
 					$('.warning-msg').removeClass('hidden');
         		}
-        	})
+        	});
+
+	        $(document).on('click', '#download-converted-pdf', function() {
+	        	$.fileDownload($(this).prop('href'))
+	        		.done(function () { 
+				        $('#download-converted-pdf')
+				        	.removeClass('teal darken-3')
+				        	.addClass('red darken-4')
+				        	.text('Download agora!')
+				    		.hide();
+						$('#convert-pdf').show();
+
+						app.postDownloadProcess( $('#download-converted-pdf').data('download') );
+	        		})
+	        		.fail(function () { 
+	        			console.error('File download failed!'); 
+	        		});
+	        	return false;
+	        });
 
             $('#convert-pdf').on('click', function(e){
             	e.preventDefault();
@@ -51,28 +69,16 @@
 	                    		.show();
 	                    },
 	                    success: function(php_script_response){
-	                        // console.log(php_script_response);
 	                        $('#download-converted-pdf')
 	                        	.removeClass('orange darken-4')
 	                        	.addClass('teal darken-3')
 	                        	.text('Baixando')
 		                        .attr({
-		                        	'href': php_script_response,
-		                        	'download': 'converted-' + file_data.name
+		                        	'href': 'inc/download-pdfa.php?filename='+php_script_response,
+		                        	'data-download': 'converted-' + file_data.name
 		                        });
 
-	                        document.getElementById('download-converted-pdf').click();
-	                        setTimeout(function(){
-	                	        $('#download-converted-pdf')
-	                	        	.removeClass('teal darken-3')
-	                	        	.addClass('red darken-4')
-	                	        	.text('Download agora!')
-	                	    		.hide();
-	                			$('#convert-pdf').show();
-	                        }, 2000);
-
-	                        app.setDownloadCookie();
-	                        // $.post( 'inc/convert-pdf.php', { deleteFiles: true } );
+                            document.getElementById('download-converted-pdf').click();
 	                    }
 	                 });
                 } else {
@@ -84,43 +90,8 @@
             });
         },
 
-        setDownloadCookie: function () {
-            function setCursor( docStyle, buttonStyle ) {
-                document.getElementById( "doc" ).style.cursor = docStyle;
-                document.getElementById( "button-id" ).style.cursor = buttonStyle;
-            }
-
-            function setFormToken() {
-                var downloadToken = new Date().getTime();
-                document.getElementById( "downloadToken" ).value = downloadToken;
-                return downloadToken;
-            }
-
-            var downloadTimer;
-            var attempts = 30;
-
-            // Prevents double-submits by waiting for a cookie from the server.
-            function blockResubmit() {
-                var downloadToken = setFormToken();
-                // setCursor( "wait", "wait" );
-
-                downloadTimer = window.setInterval( function() {
-                    var token = getCookie( "downloadToken" );
-
-                    if( (token == downloadToken) || (attempts == 0) ) {
-                        unblockSubmit();
-                    }
-
-                    attempts--;
-                }, 1000 );
-            }
-
-            function unblockSubmit() {
-              // setCursor( "auto", "pointer" );
-              window.clearInterval( downloadTimer );
-              expireCookie( "downloadToken" );
-              attempts = 30;
-            }
+        postDownloadProcess: function (filename) {
+			$.post( 'inc/delete-pdf.php', { deleteFile: filename } );
         }
     };
 })(jQuery);
