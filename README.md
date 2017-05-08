@@ -39,3 +39,7 @@ Para resolver esse problema, execute o seguinte comando:
 ```sh
 chown -R www-data:www-data folder
 ```
+
+## TODO
+
+Corrigir o script que faz a remoção automática dos arquivos - só funciona a primeira vez (depois é necessário recarregar a pagina).
