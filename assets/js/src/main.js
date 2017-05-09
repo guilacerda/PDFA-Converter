@@ -92,6 +92,8 @@
 
         postDownloadProcess: function (filename) {
 			$.post( 'pdf-pdfa/inc/delete-pdf.php', { deleteFile: filename } );
+			// @TODO Corrigir o problema de exclusao de arquivos (so exclui apos o primeiro evento de click)
+			location.reload();
         }
     };
 })(jQuery);
