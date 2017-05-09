@@ -8,13 +8,13 @@
 	<!--Import Google Icon Font -->
 	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<!--Import materialize.css -->
-	<link type="text/css" rel="stylesheet" href="assets/css/dist/main.min.css"  media="screen,projection"/>
+	<link type="text/css" rel="stylesheet" href="http://intranet.cultura.gov.br/pdf-pdfa/assets/css/dist/main.min.css"  media="screen,projection"/>
 
 	<!--Let browser know website is optimized for mobile -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 	<!--Favicon here -->
-	<link rel="shortcut icon" type="image/png" href="assets/img/favicon.png"/>
+	<link rel="shortcut icon" type="image/png" href="http://intranet.cultura.gov.br/pdf-pdfa/assets/img/favicon.png"/>
 </head>
 
 <body>
@@ -81,6 +81,6 @@
 	</footer>
 
 	<!--Import jQuery before materialize.js-->
-	<script type="text/javascript" src="assets/js/dist/main.min.js"></script>
+	<script type="text/javascript" src="http://intranet.cultura.gov.br/pdf-pdfa/assets/js/dist/main.min.js"></script>
 </body>
 </html>

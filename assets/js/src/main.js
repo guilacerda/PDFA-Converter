@@ -53,7 +53,7 @@
                 	$('.file-path-wrapper > input').removeClass('invalid').addClass('valid');
 
 	                $.ajax({
-	                    url: 'inc/convert-pdf.php',
+	                    url: 'pdf-pdfa/inc/convert-pdf.php',
 	                    dataType: 'text',
 	                    cache: false,
 	                    contentType: false,
@@ -74,7 +74,7 @@
 	                        	.addClass('teal darken-3')
 	                        	.text('Baixando')
 		                        .attr({
-		                        	'href': 'inc/download-pdfa.php?filename='+php_script_response,
+		                        	'href': 'pdf-pdfa/inc/download-pdfa.php?filename='+php_script_response,
 		                        	'data-download': 'converted-' + file_data.name
 		                        });
 
@@ -91,7 +91,7 @@
         },
 
         postDownloadProcess: function (filename) {
-			$.post( 'inc/delete-pdf.php', { deleteFile: filename } );
+			$.post( 'pdf-pdfa/inc/delete-pdf.php', { deleteFile: filename } );
         }
     };
 })(jQuery);
