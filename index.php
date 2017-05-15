@@ -38,7 +38,7 @@
 					<form class="col s6 offset-s3" action="#">
 						<div class="file-field input-field">
 							<div class="btn red darken-4">
-								<span>UPLOAD</span>
+								<span>Procurar</span>
 								<input id="pdf-file" type="file" accept=".pdf">
 							</div>
 							<div class="file-path-wrapper">
