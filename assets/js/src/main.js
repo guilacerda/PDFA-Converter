@@ -30,7 +30,7 @@
 				    		.hide();
 						$('#convert-pdf').show();
 
-						app.postDownloadProcess( $('#download-converted-pdf').data('download') );
+						// app.postDownloadProcess( $('#download-converted-pdf').data('download') );
 	        		})
 	        		.fail(function () { 
 	        			console.error('File download failed!'); 
@@ -52,35 +52,62 @@
                 	$('.warning-msg').addClass('hidden');
                 	$('.file-path-wrapper > input').removeClass('invalid').addClass('valid');
 
+	    			form_data.append('ocr-enabled', $('#enable-ocr').is(':checked' ) ? true : false);
+
 	                $.ajax({
-	                    url: 'pdf-pdfa/inc/convert-pdf.php',
+	                    url: 'inc/convert-pdf.php',
 	                    dataType: 'text',
 	                    cache: false,
 	                    contentType: false,
 	                    processData: false,
-	                    data: form_data,                         
+	                    data: form_data,
 	                    type: 'POST',
 	                    beforeSend: function(php_script_response){
+	                    	$('.file-field > .btn, .file-path-wrapper').addClass('disabled');
+	                    	$('.file-path-wrapper > input, #enable-ocr').attr('disabled', true);
+
 	                    	$('#convert-pdf').hide();
 	                    	$('#download-converted-pdf')
 	                    		.removeClass('red darken-4')
 	                    		.addClass('orange darken-4')
 	                    		.text('Processando, aguarde...')
 	                    		.show();
+                    		$s = 0;
+                    		setInterval(function(){
+                    			if( $s == 0 ){
+                    				$('#download-converted-pdf').text('Ainda Processando, aguarde...');
+                    				$s++;
+                    			} else if( $s == 1 ){
+									$('#download-converted-pdf').text('Espere, melhor pegar um café!');
+									$s++;
+                    			} else if( $s == 2 ){
+                					$('#download-converted-pdf').text('Aguente mais um pouco.');
+                					$s++;
+                    			} else if( $s == 3 ){
+                					$('#download-converted-pdf').text('Quase lá...');
+                					$s++;
+                    			} else {
+                    				$('#download-converted-pdf').text('Seja paciente, ainda processando!');
+                    				// $s = 0;
+                    			}
+                    		}, 5000)
 	                    },
 	                    success: function(php_script_response){
+	                    	$('.file-field > .btn, .file-path-wrapper').removeClass('disabled');
+	                    	$('.file-path-wrapper > input, #enable-ocr').removeAttr('disabled');
+
 	                        $('#download-converted-pdf')
 	                        	.removeClass('orange darken-4')
 	                        	.addClass('teal darken-3')
 	                        	.text('Baixando')
 		                        .attr({
-		                        	'href': 'pdf-pdfa/inc/download-pdfa.php?filename='+php_script_response,
+		                        	'href': 'inc/download-pdfa.php?filename='+php_script_response,
 		                        	'data-download': 'converted-' + file_data.name
 		                        });
 
                             document.getElementById('download-converted-pdf').click();
 	                    }
-	                 });
+	                });
                 } else {
                 	$('.warning-msg').removeClass('hidden');
                 	$('.file-path-wrapper > input').removeClass('valid').addClass('invalid');
@@ -91,7 +118,7 @@
         },
 
         postDownloadProcess: function (filename) {
-			$.post( 'pdf-pdfa/inc/delete-pdf.php', { deleteFile: filename } );
+			$.post( 'inc/delete-pdf.php', { deleteFile: filename } );
 			// @TODO Corrigir o problema de exclusao de arquivos (so exclui apos o primeiro evento de click)
 			location.reload();
         }
