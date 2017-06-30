@@ -55,7 +55,7 @@
 	    			form_data.append('ocr-enabled', $('#enable-ocr').is(':checked' ) ? true : false);
 
 	                $.ajax({
-	                    url: 'inc/convert-pdf.php',
+	                    url: urlPath + 'inc/convert-pdf.php',
 	                    dataType: 'text',
 	                    cache: false,
 	                    contentType: false,
@@ -101,7 +101,7 @@
 	                        	.addClass('teal darken-3')
 	                        	.text('Baixando')
 		                        .attr({
-		                        	'href': 'inc/download-pdfa.php?filename='+php_script_response,
+		                        	'href': urlPath + 'inc/download-pdfa.php?filename='+php_script_response,
 		                        	'data-download': 'converted-' + file_data.name
 		                        });
 
