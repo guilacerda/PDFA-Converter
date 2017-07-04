@@ -30,7 +30,7 @@
 				    		.hide();
 						$('#convert-pdf').show();
 
-						// app.postDownloadProcess( $('#download-converted-pdf').data('download') );
+						app.postDownloadProcess( $('#download-converted-pdf').data('download') );
 	        		})
 	        		.fail(function () { 
 	        			console.error('File download failed!'); 
@@ -119,8 +119,6 @@
 
         postDownloadProcess: function (filename) {
 			$.post( 'inc/delete-pdf.php', { deleteFile: filename } );
-			// @TODO Corrigir o problema de exclusao de arquivos (so exclui apos o primeiro evento de click)
-			location.reload();
         }
     };
 })(jQuery);
