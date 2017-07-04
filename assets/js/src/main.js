@@ -55,7 +55,7 @@
 	    			form_data.append('ocr-enabled', $('#enable-ocr').is(':checked' ) ? true : false);
 
 	                $.ajax({
-	                    url: urlPath + 'inc/convert-pdf.php',
+	                    url: urlPath + '/inc/convert-pdf.php',
 	                    dataType: 'text',
 	                    cache: false,
 	                    contentType: false,
@@ -90,7 +90,7 @@
                     				$('#download-converted-pdf').text('Seja paciente, ainda processando!');
                     				// $s = 0;
                     			}
-                    		}, 5000)
+                    		}, 7000)
 	                    },
 	                    success: function(php_script_response){
 	                    	$('.file-field > .btn, .file-path-wrapper').removeClass('disabled');
@@ -101,7 +101,7 @@
 	                        	.addClass('teal darken-3')
 	                        	.text('Baixando')
 		                        .attr({
-		                        	'href': urlPath + 'inc/download-pdfa.php?filename='+php_script_response,
+		                        	'href': urlPath + '/inc/download-pdfa.php?filename='+php_script_response,
 		                        	'data-download': 'converted-' + file_data.name
 		                        });
 

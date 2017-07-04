@@ -6,14 +6,14 @@
 	<!--Import Google Icon Font -->
 	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<!--Import materialize.css -->
-	<link type="text/css" rel="stylesheet" href="<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>assets/css/dist/main.min.css"  media="screen,projection"/>
+	<link type="text/css" rel="stylesheet" href="<?php echo "http://$_SERVER[HTTP_HOST]"; ?>/assets/css/dist/main.min.css"  media="screen,projection"/>
 	<!--Let browser know website is optimized for mobile -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<!--Favicon here -->
-	<link rel="shortcut icon" type="image/png" href="<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>assets/img/favicon.png"/>
+	<link rel="shortcut icon" type="image/png" href="<?php echo "http://$_SERVER[HTTP_HOST]"; ?>/assets/img/favicon.png"/>
 
 	<script type="text/javascript">
-		var urlPath = '<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>';
+		var urlPath = '<?php echo "http://$_SERVER[HTTP_HOST]"; ?>';
 	</script>
 
 	<title>Conversor PDF/A</title>
@@ -87,6 +87,6 @@
 	</footer>
 
 	<!--Import jQuery before materialize.js-->
-	<script type="text/javascript" src="<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>assets/js/dist/main.min.js"></script>
+	<script type="text/javascript" src="<?php echo "http://$_SERVER[HTTP_HOST]"; ?>/assets/js/dist/main.min.js"></script>
 </body>
 </html>
