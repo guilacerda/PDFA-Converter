@@ -2,7 +2,7 @@
 
 ## Sobre
 
-Ferramenta desenvolvida com o intuito de fornecer uma interface simples para a conversão de arquivos no formato PDF, para o formato PDF/A, um derivado da especificação proprietária, em conformidade com a [ISO 19005:2005](https://www.iso.org/standard/38920.html) e [ISO 32000:2008](https://www.iso.org/standard/51502.html).
+Ferramenta desenvolvida com o intuito de fornecer uma interface simples para a conversão de arquivos no formato PDF, para o formato PDF/A, um derivado da especificação proprietária, em conformidade com a [ISO 19005:2005](https://www.iso.org/standard/38920.html) e [ISO 32000:2008](https://www.iso.org/standard/51502.html), além de realizar o reconhecimento ótico de caracteres, também conhecido como [OCR](https://pt.wikipedia.org/wiki/Reconhecimento_%C3%B3tico_de_caracteres).
 
 ## Começando
 
