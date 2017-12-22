@@ -76,7 +76,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col s6">
-						Acompanhe no <a class="red-text text-lighten-1" href="https://github.com/Darciro/PDFA-Converter" target="_blank">Github</a>
+						Acompanhe no <a class="red-text text-lighten-1" href="https://github.com/culturagovbr/PDFA-Converter" target="_blank">Github</a>
 					</div>
 					<div class="col s6 right-align">
 						Desenvolvido com <a class="red-text text-lighten-1" href="http://materializecss.com" target="_blank">MaterializeCSS</a>
